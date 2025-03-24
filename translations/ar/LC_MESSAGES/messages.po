@@ -1,0 +1,82 @@
+# Arabic translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-23 20:24+0100\n"
+"PO-Revision-Date: 2025-03-23 20:25+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Bienvenue sur notre site !"
+msgstr "مرحبًا بكم في موقعنا!"
+
+msgid "Cet utilisateur existe déjà."
+msgstr "هذا المستخدم موجود بالفعل."
+
+msgid "Cet email est déjà utilisé."
+msgstr "هذا البريد الإلكتروني مستخدم بالفعل."
+
+msgid "Inscription réussie ! Vous pouvez maintenant vous connecter."
+msgstr "تم التسجيل بنجاح! يمكنك الآن تسجيل الدخول."
+
+msgid "Connexion réussie !"
+msgstr "تم تسجيل الدخول بنجاح!"
+
+msgid "Utilisateur non trouvé ou mot de passe incorrect."
+msgstr "لم يتم العثور على المستخدم أو كلمة المرور غير صحيحة."
+
+msgid "Vous avez été déconnecté."
+msgstr "تم تسجيل خروجك."
+
+msgid "Accueil"
+msgstr "الصفحة الرئيسية"
+
+msgid "USERNAME"
+msgstr "اسم المستخدم"
+
+msgid "Entrez votre nom d'utilisateur"
+msgstr "أدخل اسم المستخدم الخاص بك"
+
+msgid "PASSWORD"
+msgstr "كلمة المرور"
+
+msgid "Entrez votre mot de passe"
+msgstr "أدخل كلمة المرور الخاصة بك"
+
+msgid "ENTER"
+msgstr "دخول"
+
+msgid "Pas encore de compte ?"
+msgstr "ليس لديك حساب بعد؟"
+
+msgid "Inscrivez-vous ici"
+msgstr "سجل هنا"
+
+msgid "EMAIL"
+msgstr "البريد الإلكتروني"
+
+msgid "Entrez votre email"
+msgstr "أدخل بريدك الإلكتروني"
+
+msgid "SIGN ME UP!"
+msgstr "سجلني!"
+
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+msgid "Register"
+msgstr "تسجيل"
+
+

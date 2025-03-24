@@ -1,0 +1,79 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-23 20:24+0100\n"
+"PO-Revision-Date: 2025-03-23 20:25+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Bienvenue sur notre site !"
+msgstr "Welcome to our website!"
+
+msgid "Cet utilisateur existe déjà."
+msgstr "This user already exists."
+
+msgid "Cet email est déjà utilisé."
+msgstr "This email is already in use."
+
+msgid "Inscription réussie ! Vous pouvez maintenant vous connecter."
+msgstr "Registration successful! You can now log in."
+
+msgid "Connexion réussie !"
+msgstr "Login successful!"
+
+msgid "Utilisateur non trouvé ou mot de passe incorrect."
+msgstr "User not found or incorrect password."
+
+msgid "Vous avez été déconnecté."
+msgstr "You have been logged out."
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "USERNAME"
+msgstr "Username"
+
+msgid "Entrez votre nom d'utilisateur"
+msgstr "Enter your username"
+
+msgid "PASSWORD"
+msgstr "Password"
+
+msgid "Entrez votre mot de passe"
+msgstr "Enter your password"
+
+msgid "ENTER"
+msgstr "Enter"
+
+msgid "Pas encore de compte ?"
+msgstr "Don't have an account yet?"
+
+msgid "Inscrivez-vous ici"
+msgstr "Sign up here"
+
+msgid "EMAIL"
+msgstr "Email"
+
+msgid "Entrez votre email"
+msgstr "Enter your email"
+
+msgid "SIGN ME UP!"
+msgstr "Sign me up!"
+
+msgid "Sign In"
+msgstr "Sign In"
+
+msgid "Register"
+msgstr "Register"

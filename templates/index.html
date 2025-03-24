@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="{{ current_locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ _("Accueil") }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Sélecteur de langue ajouté au coin supérieur droit -->
+  <div id="language-selector" style="position: absolute; top: 10px; right: 10px; z-index: 100; text-align: right;">
+    <a href="?lang=fr" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">Français</a>
+    <a href="?lang=en" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">English</a>
+    <a href="?lang=zh" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">中文</a>
+    <a href="?lang=ar" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">العربية</a>
+  </div>
+  
+  <div id='w'>
+    <canvas id="space"></canvas>
+    <div id="container">
+      <div id="animation">
+        <svg viewBox="0 0 1280 720">
+          <mask id="maskLeft">
+            <rect x="-50%" width="100%" height="100%" fill="#fff" />
+          </mask>
+          <mask id="maskRight">
+            <rect x="50%" width="100%" height="100%" fill="#fff" />
+          </mask>
+          <g font-size="150">
+            <g mask="url(#maskLeft)" fill="#fff" class="left">
+              <text y="120">iv</text>
+              <text y="250">COLLAB</text>
+              <text y="380">welcome</text>
+            </g>
+            <g mask="url(#maskRight)" fill="#aaa" class="right">
+              <text y="120">IV</text>
+              <text y="250">COLLAB</text>
+              <text y="380">WELCOME !</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="form-container">
+        <input id="signin" type="radio" name="tab" checked>
+        <input id="register" type="radio" name="tab">
+        <div class="pages">
+          <div class="page">
+            <form action="{{ url_for('login') }}" method="POST">
+              <div class="input">
+                <div class="title"><i class="material-icons">account_box</i> {{ _("USERNAME") }}</div>
+                <input class="text" type="text" name="username" placeholder="{{ _('Entrez votre nom d\'utilisateur') }}" required>
+              </div>
+              <div class="input">
+                <div class="title"><i class="material-icons">lock</i> {{ _("PASSWORD") }}</div>
+                <input class="text" type="password" name="password" placeholder="{{ _('Entrez votre mot de passe') }}" required>
+              </div>
+              <div class="input">
+                <input type="submit" value="{{ _("ENTER") }}" id="enterButton">
+              </div>
+            </form>
+            <p>{{ _("Pas encore de compte ?") }} <a href="#" onclick="document.getElementById('register').checked = true;">{{ _("Inscrivez-vous ici") }}</a>.</p>
+          </div>
+          <div class="page signup">
+            <form action="{{ url_for('register') }}" method="POST">
+              <div class="input">
+                <div class="title"><i class="material-icons">person</i> {{ _("USERNAME") }}</div>
+                <input class="text" type="text" name="username" placeholder="{{ _('Entrez votre nom d\'utilisateur') }}" required>
+              </div>
+              <div class="input">
+                <div class="title"><i class="material-icons">markunread_mailbox</i> {{ _("EMAIL") }}</div>
+                <input class="text" type="email" name="email" placeholder="{{ _('Entrez votre email') }}" required>
+              </div>
+              <div class="input">
+                <div class="title"><i class="material-icons">lock</i> {{ _("PASSWORD") }}</div>
+                <input class="text" type="password" name="password" placeholder="{{ _('Entrez votre mot de passe') }}" required>
+              </div>
+              <div class="input">
+                <input type="submit" value="{{ _("SIGN ME UP!") }}" id="signupButton">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="tabs">
+          <label class="tab text" for="signin">{{ _("Sign In") }}</label>
+          <label class="tab text" for="register">{{ _("Register") }}</label>
+        </div>
+      </div>
+    </div>
+    <div id="logo">
+      <img src="{{ url_for('static', filename='img/ivcollab_logo.jpg') }}" alt="IV Collab Logo">
+    </div>
+    <div style="position: absolute; bottom: 20px; width: 100%; text-align: center; color: white; font-size: 0.9rem;">
+      <a href="{{ url_for('terms') }}" style="text-decoration: none; color: white; margin-right: 20px;">{{ _("Conditions d'utilisation") }}</a>
+      <a href="{{ url_for('privacy') }}" style="text-decoration: none; color: white;">{{ _("Politique de confidentialité") }}</a>
+    </div>
+    
+    
+      <!-- Texte IV COLLAB 1.1 -->
+      <div id="warp" style="color: white; font-weight: bold; margin-bottom: 40px;">IV COLLAB 1.1</div>
+    </div>
+    
+    
+<div id="social-icons">
+  <a href="https://www.tiktok.com/login" target="_blank" class="social-icon">
+    <img src="{{ url_for('static', filename='img/tiktok.svg') }}" alt="TikTok">
+  </a>
+  <a href="https://www.facebook.com/login" target="_blank" class="social-icon">
+    <img src="{{ url_for('static', filename='img/facebook.svg') }}" alt="Facebook">
+  </a>
+  <a href="https://twitter.com/login" target="_blank" class="social-icon">
+    <img src="{{ url_for('static', filename='img/twitter.svg') }}" alt="Twitter">
+  </a>
+  <a href="https://www.instagram.com/accounts/login" target="_blank" class="social-icon">
+    <img src="{{ url_for('static', filename='img/instagram.svg') }}" alt="Instagram">
+  </a>
+  <a href="https://web.whatsapp.com" target="_blank" class="social-icon">
+    <img src="{{ url_for('static', filename='img/whatsapp.svg') }}" alt="WhatsApp">
+  </a>
+</div>
+<script src="{{ url_for('static', filename='js/space.js') }}"></script>
+  <script>
+    const tl = gsap
+      .timeline({
+        defaults: {
+          duration: 10,
+          yoyo: true,
+          ease: "power2.inOut"
+        }
+      })
+      .fromTo(
+        ".left, .right",
+        {
+          svgOrigin: "640 500",
+          skewY: (i) => [-30, 15][i],
+          scaleX: (i) => [0.6, 0.85][i],
+          x: 200
+        },
+        {
+          skewY: (i) => [-15, 30][i],
+          scaleX: (i) => [0.85, 0.6][i],
+          x: -200
+        }
+      )
+      .play(0.5);
+
+    const tl2 = gsap.timeline();
+
+    document.querySelectorAll("text").forEach((t, i) => {
+      tl2.add(
+        gsap.fromTo(
+          t,
+          {
+            xPercent: -100,
+            x: 700
+          },
+          {
+            duration: 1,
+            xPercent: 0,
+            x: 575,
+            ease: "sine.inOut"
+          }
+        ),
+        (i % 3) * 0.2
+      );
+    });
+
+    window.onpointermove = (e) => {
+      tl.pause();
+      tl2.pause();
+      gsap.to([tl, tl2], {
+        duration: 10,
+        ease: "power4",
+        progress: e.x / innerWidth
+      });
+    };
+
+    var signin = document.querySelector("#signin");
+    var register = document.querySelector("#register");
+    setTimeout(function () {
+      register.checked = true;
+    }, 1000);
+    setTimeout(function () {
+      signin.checked = true;
+    }, 2000);
+  </script>
+</body>
+</html>

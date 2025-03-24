@@ -1,0 +1,99 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-23 20:24+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app.py:64
+msgid "Bienvenue sur notre site !"
+msgstr ""
+
+#: app.py:77
+msgid "Cet utilisateur existe déjà."
+msgstr ""
+
+#: app.py:82
+msgid "Cet email est déjà utilisé."
+msgstr ""
+
+#: app.py:95
+msgid "Inscription réussie ! Vous pouvez maintenant vous connecter."
+msgstr ""
+
+#: app.py:111
+msgid "Connexion réussie !"
+msgstr ""
+
+#: app.py:114
+msgid "Utilisateur non trouvé ou mot de passe incorrect."
+msgstr ""
+
+#: app.py:121
+msgid "Vous avez été déconnecté."
+msgstr ""
+
+#: templates/index.html:6
+msgid "Accueil"
+msgstr ""
+
+#: templates/index.html:53 templates/index.html:69
+msgid "USERNAME"
+msgstr ""
+
+#: templates/index.html:54 templates/index.html:70
+msgid "Entrez votre nom d'utilisateur"
+msgstr ""
+
+#: templates/index.html:57 templates/index.html:77
+msgid "PASSWORD"
+msgstr ""
+
+#: templates/index.html:58 templates/index.html:78
+msgid "Entrez votre mot de passe"
+msgstr ""
+
+#: templates/index.html:61
+msgid "ENTER"
+msgstr ""
+
+#: templates/index.html:64
+msgid "Pas encore de compte ?"
+msgstr ""
+
+#: templates/index.html:64
+msgid "Inscrivez-vous ici"
+msgstr ""
+
+#: templates/index.html:73
+msgid "EMAIL"
+msgstr ""
+
+#: templates/index.html:74
+msgid "Entrez votre email"
+msgstr ""
+
+#: templates/index.html:81
+msgid "SIGN ME UP!"
+msgstr ""
+
+#: templates/index.html:87
+msgid "Sign In"
+msgstr ""
+
+#: templates/index.html:88
+msgid "Register"
+msgstr ""
+
