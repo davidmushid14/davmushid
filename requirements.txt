@@ -1,7 +1,0 @@
-Flask
-flask_babel
-flask_sqlalchemy
-flask_login
-python-dotenv
-stripe
-requests
