@@ -3,15 +3,23 @@ from flask_babel import Babel, gettext as _
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import stripe
 import requests
+import os
+from dotenv import load_dotenv
+
+# Charger les variables d'environnement
+load_dotenv()
+
+# Configuration de Stripe
+import stripe
+stripe.api_key = os.getenv("STRIPE_API_KEY")  # Récupération de la clé API Stripe depuis .env
+stripe_public_key = os.getenv("STRIPE_PUBLIC_KEY")  # Ajoutez également la clé publique dans .env si nécessaire
+
+# Vérification de la clé chargée (utile pour le débogage, retirez pour production)
+print(f"Clé API Stripe chargée : {stripe.api_key}")
 
 app = Flask(__name__)
 app.secret_key = 'cfbf976df4f2e295000890d09fcce409934b96d0251391627a874c3d65c47bf4'  # Clé secrète pour Flask
-
-# Configuration de Stripe
-stripe.api_key = 'sk_test_51R0140L11Yg2rs4elCsCL1IXDv4dp39o1qp3bgBUnO4kmB3rzgS97oysiH5gMiR8X1uD8l2VataNJh1U3pWqb4ni00MhXiVSdb'  # Remplace par ta clé secrète Stripe
-stripe_public_key = 'pk_test_51R0140L11Yg2rs4e4ePnXNBfbJ82uPMi5MCNPgqOEFDl5CGdrQxGJCZa3xSCImkW5CCDsUdjWxyXiNpWU86IAbRI00ajzxV46S'  # Remplace par ta clé publique Stripe
 
 # Configuration de la base de données SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
