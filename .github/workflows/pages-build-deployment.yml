@@ -1,32 +1,35 @@
-name: pages-build-deployment
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # Branche principale pour le déploiement
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build documentation
-      run: mkdir -p ${{ github.workspace }}/docs
-      shell: bash
+      - name: Build the site
+        run: npm run build  # Commande pour générer les fichiers à publier
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
+      - name: Verify build output
+        run: ls -la ./_site  # Vérifiez que les fichiers sont générés
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
