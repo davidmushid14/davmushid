@@ -13,22 +13,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        ruby-version: '2.7'
-
-    - name: Create missing directory
-      run: mkdir -p /github/workspace/docs
+        node-version: '14'
 
     - name: Install dependencies
-      run: bundle install
+      run: npm install
 
-    - name: Build Jekyll site
-      run: bundle exec jekyll build
+    - name: Build documentation
+      run: mkdir -p ${{ github.workspace }}/docs
+      shell: bash
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
+        publish_dir: ${{ github.workspace }}/docs
