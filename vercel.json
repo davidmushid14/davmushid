@@ -1,25 +1,17 @@
 {
+  "version": 2,
   "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
+    { "src": "app.py", "use": "@vercel/python" },
+    { "src": "static/tiktok*.html", "use": "@vercel/static" }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/static/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.html",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        }
-      ]
-    }
+      "src": "/static/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.html",
+      "headers": {
+        "Content-Type": "text/plain",
+        "Cache-Control": "no-store"
+      }
+    },
+    { "src": "/(.*)", "dest": "app.py" }
   ]
 }
