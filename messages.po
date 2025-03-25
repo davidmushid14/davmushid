@@ -1,0 +1,79 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-03-23 20:24+0100\n"
+"PO-Revision-Date: 2025-03-23 20:25+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+msgid "Bienvenue sur notre site !"
+msgstr "欢迎来到我们的网站！"
+
+msgid "Cet utilisateur existe déjà."
+msgstr "该用户已存在。"
+
+msgid "Cet email est déjà utilisé."
+msgstr "此电子邮件已被使用。"
+
+msgid "Inscription réussie ! Vous pouvez maintenant vous connecter."
+msgstr "注册成功！现在您可以登录了。"
+
+msgid "Connexion réussie !"
+msgstr "登录成功！"
+
+msgid "Utilisateur non trouvé ou mot de passe incorrect."
+msgstr "未找到用户或密码错误。"
+
+msgid "Vous avez été déconnecté."
+msgstr "您已登出。"
+
+msgid "Accueil"
+msgstr "首页"
+
+msgid "USERNAME"
+msgstr "用户名"
+
+msgid "Entrez votre nom d'utilisateur"
+msgstr "输入您的用户名"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "Entrez votre mot de passe"
+msgstr "输入您的密码"
+
+msgid "ENTER"
+msgstr "进入"
+
+msgid "Pas encore de compte ?"
+msgstr "还没有账户吗？"
+
+msgid "Inscrivez-vous ici"
+msgstr "在这里注册"
+
+msgid "EMAIL"
+msgstr "电子邮件"
+
+msgid "Entrez votre email"
+msgstr "输入您的电子邮件"
+
+msgid "SIGN ME UP!"
+msgstr "注册！"
+
+msgid "Sign In"
+msgstr "登录"
+
+msgid "Register"
+msgstr "注册"
