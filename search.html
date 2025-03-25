@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prenium</title>
+  <title>Premium</title>
   <style>
-    /* Styles généraux */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
     }
 
-    /* Encadré pour les informations */
     .info-box {
       background-color: #fff;
       border-radius: 10px;
@@ -22,7 +20,6 @@
       margin: 20px auto;
     }
 
-    /* Titre */
     h1 {
       font-size: 2.5em;
       color: #333;
@@ -30,7 +27,6 @@
       margin-bottom: 20px;
     }
 
-    /* Labels et selects */
     label {
       display: block;
       margin-bottom: 10px;
@@ -47,9 +43,8 @@
       margin-bottom: 20px;
     }
 
-    /* Bouton */
     button {
-      background-color:rgb(230, 91, 5);
+      background-color: rgb(230, 91, 5);
       color: white;
       border: none;
       padding: 10px 20px;
@@ -60,10 +55,9 @@
     }
 
     button:hover {
-      background-color:rgb(245, 90, 12);
+      background-color: rgb(245, 90, 12);
     }
 
-    /* Liste des résultats */
     ul {
       list-style-type: none;
       padding: 0;
@@ -84,7 +78,7 @@
     }
 
     ul li a:hover {
-      color:rgb(209, 111, 26);
+      color: rgb(209, 111, 26);
     }
   </style>
 </head>
@@ -92,9 +86,9 @@
   <div id='w'>
     <canvas id="space"></canvas>
     <div class="info-box">
-      <h1>Prenium</h1>
+      <h1>Premium</h1>
       <div class="search-form">
-        <form action="{{ url_for('search') }}" method="POST">
+        <form action="search.html" method="POST">
           <label>Pays:
             <select name="country">
               <option value="France">France</option>
@@ -133,6 +127,6 @@
       </div>
     </div>
   </div>
-  <script src="{{ url_for('static', filename='js/space.js') }}"></script>
+ <script src="space.js"></script>
 </body>
 </html>
