@@ -29,6 +29,15 @@
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
         }
+        {
+  "redirects": [
+    {
+      "source": "/tiktok-verification",
+      "destination": "/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.txt",
+      "permanent": false
+    }
+  ]
+}
       ]
     }
   ]
