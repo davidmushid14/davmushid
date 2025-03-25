@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    body {
+      background: rgba(0, 10, 20, 1);
+      background-size: cover;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .table {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      max-width: 800px;
+      width: 100%;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+    }
+    .price {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      width: 45%;
+    }
+    .price .header h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .price .header h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .price .body p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .price .footer button {
+      background: #79c5f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .price .footer button:hover {
+      background: #e4924e;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 450px;
+      text-align: center;
+    }
+    .modal-content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .modal-content .form-group {
+      margin-bottom: 15px;
+    }
+    .modal-content .form-group label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+    }
+    .modal-content .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .modal-content button {
+      background: #79c5f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal-content button:hover {
+      background: #e4924e;
+    }
+    .btn-success {
+      background: #4CAF50 !important;
+    }
+    .btn-success::after {
+      content: " ✓";
+    }
+    .payment-logo {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .payment-logo:hover {
+      opacity: 0.8;
+    }
+    .paypal-logo {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .paypal-logo:hover {
+      opacity: 0.8;
+    }
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id='w'>
+    <canvas id="space"></canvas>
+    <div class="table">
+      <div class="price one">
+        <div class="header">
+          <h3>Basic</h3>
+          <h1>
+            <span class="value">5$</span> <span class="month">/ Mois</span>
+          </h1>
+        </div>
+        <div class="body">
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Accès à la Recherche locale et internationale
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            250K - 999K abonnés
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Publicités de produits et services
+          </p>
+        </div>
+        <div class="footer">
+          <button id="pay-basic">Payer</button>
+        </div>
+      </div>
+
+      <div class="price two">
+        <div class="header">
+          <h3>Premium</h3>
+          <h1>
+            <span class="value">9.99$</span> <span class="month">/ Mois</span>
+          </h1>
+        </div>
+        <div class="body">
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Accès à la Recherche locale et internationale
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            + 1M abonnés
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Publicités de produits et services
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Offres spéciales et Promotions
+          </p>
+          <p>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Concours et giveaways
+          </p>
+        </div>
+        <div class="footer">
+          <button id="pay-premium">Payer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fenêtre modale pour le paiement -->
+  <div id="payment-modal" class="modal">
+    <div class="modal-content">
+      <h2>Paiement</h2>
+      <p>Autres options :</p>
+      <div class="payment-options">
+        <!-- Logo PayPal cliquable -->
+        <img src="{{ url_for('static', filename='img/paypal-logo.svg') }}" alt="PayPal" class="paypal-logo" id="paypal-logo">
+        <!-- Logo Apple Pay cliquable -->
+        <img src="{{ url_for('static', filename='img/apple-pay-logo.svg') }}" alt="Apple Pay" class="payment-logo" id="apple-pay-logo">
+      </div>
+      
+      <form id="payment-form">
+        <div class="form-group">
+          <label for="card-name">Nom sur la carte</label>
+          <input type="text" id="card-name" placeholder="Nom complet" required>
+        </div>
+        <div class="form-group">
+          <label for="card-country">Pays ou région (optionnel)</label>
+          <input type="text" id="card-country" placeholder="Pays ou région">
+        </div>
+        <div id="card-element"></div>
+        <button type="submit" id="submit-payment">Payer</button>
+        <div id="payment-message" class="hidden"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const stripe = Stripe('{{ stripe_public_key }}');
+    const elements = stripe.elements();
+    const modal = document.getElementById('payment-modal');
+    const payBasicButton = document.getElementById('pay-basic');
+    const payPremiumButton = document.getElementById('pay-premium');
+    const paymentForm = document.getElementById('payment-form');
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+
+    let currentPlan = null;
+
+    // Initialisation des boutons de paiement
+    payBasicButton.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      currentPlan = 'basic';
+      initPaymentButtons();
+    });
+
+    payPremiumButton.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      currentPlan = 'premium';
+      initPaymentButtons();
+    });
+
+    // Initialisation des options de paiement
+    function initPaymentButtons() {
+      // Apple Pay
+      if (window.ApplePaySession && ApplePaySession.canMakePayments()) {
+        const applePayButton = document.getElementById('apple-pay-logo');
+        applePayButton.style.display = 'block';
+        applePayButton.addEventListener('click', handleApplePay);
+      } else {
+        document.getElementById('apple-pay-logo').style.display = 'none';
+      }
+
+      // PayPal
+      document.getElementById('paypal-logo').addEventListener('click', handlePayPal);
+    }
+
+    // Gestion du formulaire de carte
+    paymentForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const {error, paymentIntent} = await processCardPayment();
+      
+      if (error) {
+        showPaymentError(error.message);
+      } else if (paymentIntent.status === 'succeeded') {
+        handlePaymentSuccess();
+      }
+    });
+
+    async function processCardPayment() {
+      const response = await fetch('/create-payment-intent', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({amount: currentPlan === 'basic' ? 500 : 999})
+      });
+      
+      const {clientSecret} = await response.json();
+      
+      if (!clientSecret) {
+        throw new Error('Erreur lors de la création du PaymentIntent');
+      }
+
+      return await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: document.getElementById('card-name').value,
+          },
+        },
+      });
+    }
+
+    // Apple Pay
+    async function handleApplePay() {
+      try {
+        const paymentRequest = stripe.paymentRequest({
+          country: 'US',
+          currency: 'usd',
+          total: {
+            label: 'Abonnement ' + (currentPlan === 'basic' ? 'Basic' : 'Premium'),
+            amount: currentPlan === 'basic' ? 500 : 999,
+          },
+          requestPayerName: true,
+          requestPayerEmail: true,
+        });
+
+        const canMakePayment = await paymentRequest.canMakePayment();
+        if (!canMakePayment) {
+          throw new Error('Apple Pay non disponible');
+        }
+
+        const {error, paymentIntent} = await stripe.confirmApplePayPayment(
+          await getClientSecret(),
+          {
+            payment_method: {
+              billing_details: {
+                name: document.getElementById('card-name').value || 'Client',
+              },
+            },
+          }
+        );
+
+        if (error) throw error;
+        if (paymentIntent.status === 'succeeded') {
+          handlePaymentSuccess();
+        }
+      } catch (error) {
+        showPaymentError(error.message);
+      }
+    }
+
+    // PayPal
+    async function handlePayPal() {
+      try {
+        const {error, paymentIntent} = await stripe.confirmPayPalPayment(
+          await getClientSecret(),
+          {
+            return_url: window.location.href,
+          }
+        );
+
+        if (error) throw error;
+        if (paymentIntent.status === 'succeeded') {
+          handlePaymentSuccess();
+        }
+      } catch (error) {
+        showPaymentError(error.message);
+      }
+    }
+
+    async function getClientSecret() {
+      const response = await fetch('/create-payment-intent', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({amount: currentPlan === 'basic' ? 500 : 999})
+      });
+      const {clientSecret} = await response.json();
+      return clientSecret;
+    }
+
+    function handlePaymentSuccess() {
+      modal.style.display = 'none';
+      const payButton = currentPlan === 'basic' ? payBasicButton : payPremiumButton;
+      payButton.classList.add('btn-success');
+      payButton.textContent = 'Paiement approuvé';
+      payButton.onclick = () => {
+        window.location.href = currentPlan === 'basic' ? '/basic' : '/search';
+      };
+    }
+
+    function showPaymentError(message) {
+      const messageElement = document.getElementById('payment-message');
+      messageElement.textContent = message;
+      messageElement.classList.remove('hidden');
+    }
+
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

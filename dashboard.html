@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    body {
+      background: rgba(0, 10, 20, 1) url(https://i.imgur.com/r838U7u.jpg) center no-repeat;
+      background-size: cover;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .dashboard {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+      color: white;
+      text-align: center;
+    }
+
+    .dashboard h2 {
+      margin-bottom: 20px;
+    }
+
+    .dashboard p {
+      margin-bottom: 20px;
+    }
+
+    .dashboard a {
+      color: #79c5f4;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px; /* Espace entre les liens */
+    }
+
+    .dashboard a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Bienvenue, {{ user.username }} !</h2>
+    <p>Vous êtes connecté.</p>
+    <a href="{{ url_for('payment') }}">Choisissez un plan</a> | 
+    <a href="{{ url_for('logout') }}">Déconnexion</a>
+  </div>
+</body>
+</html>
