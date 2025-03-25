@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paiement</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://js.stripe.com/v3/"></script>
   <style>
     body {
@@ -239,9 +239,9 @@
       </form>
     </div>
   </div>
-  <script src="space.js"></script>
+
   <script>
-    const stripe = Stripe('{{ stripe_public_key }}');
+    const stripe = Stripe('pk_test_51R0140L11Yg2rs4e4ePnXNBfbJ82uPMi5MCNPgqOEFDl5CGdrQxGJCZa3xSCImkW5CCDsUdjWxyXiNpWU86IAbRI00ajzxV46S');
     const elements = stripe.elements();
     const modal = document.getElementById('payment-modal');
     const payBasicButton = document.getElementById('pay-basic');
@@ -390,7 +390,7 @@
       payButton.classList.add('btn-success');
       payButton.textContent = 'Paiement approuvé';
       payButton.onclick = () => {
-        window.location.href = currentPlan === 'basic' ? '/basic' : '/search';
+        window.location.href = currentPlan === 'basic' ? 'basic.html' : 'search.html';
       };
     }
 
