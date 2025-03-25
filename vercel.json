@@ -1,22 +1,25 @@
 {
-    "builds": [
-      {
-        "src": "app.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "app.py"
-      }
-    ]
-    "headers": [
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "headers": [
     {
       "source": "/static/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.html",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
       ]
     }
   ]
-  }
+}
