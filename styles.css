@@ -1,0 +1,562 @@
+body {
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: rgba(0, 10, 20, 1);
+    background-size: cover;
+    image-rendering: pixelated;
+    font-family: sans-serif;
+  }
+  
+  #space {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  #container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 20px;
+  }
+  
+  #animation {
+    width: 50%;
+    text-align: center;
+  }
+  
+  #animation svg {
+    width: 100%;
+    height: auto;
+  }
+  
+  .form-container {
+    min-height: 400px;
+    max-width: 400px;
+    margin: 20px auto;
+    margin-left: 200px;
+    background: rgb(0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: hi 0.5s;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    padding: 20px; /* Espace intérieur */
+    /* transform: rotate(45deg); */ /* Supprimez ou commentez cette ligne */
+  }
+  
+  .pages {
+    flex: 1;
+    white-space: nowrap;
+    position: relative;
+    transition: all 0.4s;
+    display: flex;
+  }
+  
+  .page {
+    min-width: 100%;
+    padding: 5px 5px;
+    padding-top: 0px;
+    background: linear-gradient(to left, #79c5f4, #e4924e);
+  }
+  
+  .page.signup {
+    background: linear-gradient(to left, hsl(0, 0%, 95%), #12274f);
+  }
+  
+  .input {
+    margin-top: 20px;
+    transition: all 1s;
+    opacity: 0;
+  }
+  
+  .input .title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    position: relative;
+    line-height: 14px;
+    color: #333; /* Couleur du texte */
+    text-align: left; /* Aligner le texte à gauche */
+    margin-left: 5%; /* Aligner avec le champ de saisie */
+  }
+  
+  .input .title i {
+    vertical-align: text-bottom;
+    font-size: 19px;
+  }
+  
+  input.text {
+    background: #f6f7f9;
+    border: none;
+    border-radius: 4px;
+    width: 90%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    color: rgba(0, 0, 0, 0.5);
+    outline: none;
+    margin: 0 auto; /* Centrer le champ de saisie */
+    display: block
+  }
+  
+  input[type="submit"] {
+    background: rgba(0, 0, 0, 0.5);
+    color: #f6f7f9;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  input.text:focus {
+    border: 2px solid #79c5f4;
+    box-shadow: 0 0 5px rgba(121, 197, 244, 0.5);
+  }
+  input[type="submit"]:hover {
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+  }
+  
+  .tabs {
+    max-height: 50px;
+    height: 50px;
+    display: flex;
+    background: #fff;
+  }
+  
+  .tabs .tab {
+    flex: 1;
+    color: #5d708a;
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.2s;
+  }
+  
+  .tabs .tab .text {
+    font-size: 14px;
+    transform: scale(1);
+    transition: all 0.2s;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) {
+    box-shadow: inset -3px 2px 5px rgba(0, 0, 0, 0.25);
+    color: #3f4c7f;
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .tabs .tab:nth-of-type(1) .text {
+    transform: scale(0.9);
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .pages {
+    transform: translateX(0%);
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .pages .page:nth-of-type(1) .input {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 0.5s;
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .pages .page:nth-of-type(1) .input:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .pages .page:nth-of-type(1) .input:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  
+  input[type="radio"]:nth-of-type(1):checked ~ .pages .page:nth-of-type(1) .input:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) {
+    box-shadow: inset 3px 2px 5px rgba(0, 0, 0, 0.25);
+    color: #3f4c7f;
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .tabs .tab:nth-of-type(2) .text {
+    transform: scale(0.9);
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .pages {
+    transform: translateX(-100%);
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .pages .page:nth-of-type(2) .input {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 0.5s;
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .pages .page:nth-of-type(2) .input:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .pages .page:nth-of-type(2) .input:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked ~ .pages .page:nth-of-type(2) .input:nth-child(3) {
+    transition-delay: 0.6s;
+  }
+  
+  @keyframes hi {
+    from {
+      transform: translateY(50%) scale(0, 0);
+      opacity: 0;
+    }
+  }
+  
+  #logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+  }
+  
+  #logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  #warp {
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+    color: rgba(209, 255, 255, 1);
+    border: 2px solid;
+    padding: 1em;
+    width: 10em;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    display: inline-block;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.8);
+    transition: all 0.2s;
+  }
+  
+  #warp:hover {
+    box-shadow: 0 0 10px #eef, 0 0 12px #a0cdff inset;
+    text-shadow: 0 0 12px #489cfa, 0 0 5px #fff;
+  }
+  
+  #btn-twtr {
+    clear: both;
+    color: #fff;
+    border: 2px solid;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-family: sans-serif;
+    font-size: 14px;
+    width: 13em;
+    padding: 5px 10px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    right: 10%;
+    margin: 90vh 0;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0px 3px rgba(0, 0, 0, 0.2);
+    opacity: 0.3;
+  }
+  
+  #btn-twtr:hover {
+    color: #fff;
+    opacity: 1;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+b {
+  background-color: transparent; /* Fond transparent */
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  margin: 80px auto; /* Centrer les tableaux */
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px; /* Limiter la largeur */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre */
+}
+
+.price {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 20px;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 10px;
+  max-width: 250px;
+  background-color: #fff; /* Fond blanc pour chaque tableau */
+}
+
+.price .header h3 {
+  font-size: 17px;
+}
+
+.price .header h1 {
+  margin-top: -15px;
+}
+
+.price .header h1 .value {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.price .header h1 .month {
+  font-size: 15px;
+  color: rgb(163, 161, 161);
+}
+
+.price .header p {
+  margin-top: -8px;
+  color: rgb(99, 98, 98);
+}
+
+.price .body {
+  margin-top: 40px;
+}
+
+.price p {
+  font-size: 15px;
+}
+
+.price .body i {
+  color: rgb(131, 130, 130);
+  margin-right: 10px;
+}
+
+.price .footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.price .footer button {
+  background-color: #fff;
+  border: 1px solid rgb(150, 50, 243);
+  padding: 1em;
+  outline: none;
+  cursor: pointer;
+  width: 90%;
+  border-radius: 10px;
+  color: rgb(150, 50, 243);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+  .table {
+    margin: 20px; /* Ajuster la marge pour les petits écrans */
+    padding: 20px;
+  }
+}
+/* Styles pour le conteneur des icônes */
+#social-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px; /* Espace entre les icônes */
+  }
+  
+  /* Styles pour chaque icône */
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fond légèrement transparent */
+    border-radius: 50%; /* Forme ronde */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
+  }
+  
+  /* Styles pour les images des icônes */
+  .social-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  @media screen and (max-width: 1024px) {
+    #container {
+      padding: 0 10px; /* Réduire l'espacement */
+    }
+  
+    #animation {
+      width: 70%; /* Agrandir l'animation pour les tablettes */
+    }
+  
+    .form-container {
+      margin-left: 100px; /* Réduire la marge gauche */
+      max-width: 350px; /* Réduire la largeur du formulaire */
+    }
+  
+    .table {
+      max-width: 90%; /* Ajuster la largeur des tableaux */
+      margin: 40px auto; /* Réduire la marge */
+    }
+  
+    .price {
+      max-width: 45%; /* Afficher 2 tableaux par ligne */
+      margin: 10px;
+    }
+  
+    #social-icons {
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    body {
+      overflow: auto; /* Permettre le défilement sur les petits écrans */
+    }
+  
+    #container {
+      flex-direction: column; /* Empiler les éléments verticalement */
+      height: auto; /* Ajuster la hauteur */
+      padding: 20px 10px; /* Réduire l'espacement */
+    }
+  
+    #animation {
+      display: none; /* Masquer l'animation SVG */
+    }
+  
+    .form-container {
+      margin-left: 0; /* Supprimer la marge gauche */
+      max-width: 100%; /* Prendre toute la largeur */
+      padding: 15px; /* Réduire l'espacement intérieur */
+    }
+  
+    .table {
+      max-width: 100%; /* Prendre toute la largeur */
+      margin: 20px 10px; /* Réduire la marge */
+      padding: 20px; /* Réduire l'espacement intérieur */
+    }
+  
+    .price {
+      max-width: 100%; /* Afficher un tableau par ligne */
+      margin: 10px 0; /* Réduire la marge */
+    }
+  
+    #social-icons {
+      position: static; /* Retirer le positionnement absolu */
+      justify-content: center; /* Centrer les icônes */
+      margin-top: 20px; /* Espacement avec le contenu précédent */
+    }
+  
+    #btn-twtr {
+      position: static; /* Retirer le positionnement absolu */
+      margin: 20px auto; /* Centrer le bouton */
+    }
+  
+    #warp {
+      display: none; /* Masquer le texte "IV COLLAB 1.1" */
+    }
+  
+    #logo {
+      display: none; /* Masquer le logo IV Collab */
+    }
+}
+@media screen and (max-width: 480px) {
+  .form-container {
+    padding: 10px; /* Réduire encore l'espacement intérieur */
+  }
+
+  .input .title {
+    font-size: 12px; /* Réduire la taille du texte */
+  }
+
+  input.text {
+    height: 35px; /* Réduire la hauteur des champs de saisie */
+    font-size: 14px; /* Réduire la taille du texte */
+  }
+
+  .price .header h3 {
+    font-size: 15px; /* Réduire la taille du texte */
+  }
+
+  .price .header h1 {
+    font-size: 24px; /* Réduire la taille du texte */
+  }
+
+  .price .header p {
+    font-size: 13px; /* Réduire la taille du texte */
+  }
+
+  .price .body p {
+    font-size: 13px; /* Réduire la taille du texte */
+  }
+
+  .price .footer button {
+    padding: 0.8em; /* Réduire la taille du bouton */
+    font-size: 14px; /* Réduire la taille du texte */
+  }
+
+  #animation {
+    display: none; /* Masquer l'animation SVG */
+  }
+
+  #warp {
+    display: none; /* Masquer le texte "IV COLLAB 1.1" */
+  }
+
+  #logo {
+    display: none; /* Masquer le logo IV Collab */
+  }
+
+  #social-icons {
+    display: flex; /* Assurer que les icônes sociales sont visibles */
+    justify-content: center; /* Centrer les icônes */
+    margin-top: 20px; /* Espacement avec le formulaire */
+  }
+}
+  .alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
