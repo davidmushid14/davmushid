@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paiement</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://js.stripe.com/v3/"></script>
   <style>
@@ -219,9 +219,9 @@
       <p>Autres options :</p>
       <div class="payment-options">
         <!-- Logo PayPal cliquable -->
-        <img src="{{ url_for('static', filename='img/paypal-logo.svg') }}" alt="PayPal" class="paypal-logo" id="paypal-logo">
+        <img src="paypal-logo.svg" alt="PayPal" class="paypal-logo" id="paypal-logo">
         <!-- Logo Apple Pay cliquable -->
-        <img src="{{ url_for('static', filename='img/apple-pay-logo.svg') }}" alt="Apple Pay" class="payment-logo" id="apple-pay-logo">
+        <img src="apple-pay-logo.svg" alt="Apple Pay" class="payment-logo" id="apple-pay-logo">
       </div>
       
       <form id="payment-form">
@@ -239,7 +239,7 @@
       </form>
     </div>
   </div>
-
+  <script src="space.js"></script>
   <script>
     const stripe = Stripe('{{ stripe_public_key }}');
     const elements = stripe.elements();
