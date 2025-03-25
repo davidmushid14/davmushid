@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Inscription</h2>
+    <form id="register-form" method="GET">
+      <div class="input">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p>Déjà un compte ? <a href="login.html">Connectez-vous ici</a>.</p>
+  </div>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Inscription simulée - GitHub Pages ne supporte pas les requêtes POST.');
+    });
+  </script>
+</body>
+</html>
