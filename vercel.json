@@ -1,14 +1,35 @@
 {
-    "builds": [
-      {
-        "src": "app.py",
-        "use": "@vercel/python"
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "static/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.txt",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.txt",
+      "headers": {
+        "Content-Type": "text/plain"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "app.py"
-      }
-    ]
-  }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/tiktokkwvcKuW5hmfajEk4rJr2vJUWNNGU4W2x.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
