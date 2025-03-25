@@ -3,7 +3,7 @@ body {
     max-width: 100%;
     margin: 0;
     overflow: hidden;
-    background: rgba(0, 10, 20, 1) url(https://i.imgur.com/r838U7u.jpg) center no-repeat;
+    background: rgba(0, 10, 20, 1);
     background-size: cover;
     image-rendering: pixelated;
     font-family: sans-serif;
