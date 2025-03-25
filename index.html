@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta name="tiktok-developers-site-verification" content="NpgusxxApjtXH9NvcF7UDJaa9VRRnLvG">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
@@ -10,6 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body>
+  <!-- Sélecteur de langue ajouté au coin supérieur droit -->
   <div id="language-selector" style="position: absolute; top: 10px; right: 10px; z-index: 100; text-align: right;">
     <a href="?lang=fr" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">Français</a>
     <a href="?lang=en" style="margin: 0 5px; text-decoration: none; font-size: 1rem; color: #333;">English</a>
@@ -49,42 +51,42 @@
           <div class="page">
             <form action="login.html" method="POST">
               <div class="input">
-                <div class="title"><i class="material-icons">account_box</i> Nom d'utilisateur</div>
+                <div class="title"><i class="material-icons">account_box</i> USERNAME</div>
                 <input class="text" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required>
               </div>
               <div class="input">
-                <div class="title"><i class="material-icons">lock</i> Mot de passe</div>
+                <div class="title"><i class="material-icons">lock</i> PASSWORD</div>
                 <input class="text" type="password" name="password" placeholder="Entrez votre mot de passe" required>
               </div>
               <div class="input">
-                <input type="submit" value="Connexion" id="enterButton">
+                <input type="submit" value="ENTER" id="enterButton">
               </div>
             </form>
-            <p>Pas encore de compte ? <a href="register.html">Inscrivez-vous ici</a>.</p>
+            <p>Pas encore de compte ? <a href="#" onclick="document.getElementById('register').checked = true;">Inscrivez-vous ici</a>.</p>
           </div>
           <div class="page signup">
             <form action="register.html" method="POST">
               <div class="input">
-                <div class="title"><i class="material-icons">person</i> Nom d'utilisateur</div>
+                <div class="title"><i class="material-icons">person</i> USERNAME</div>
                 <input class="text" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required>
               </div>
               <div class="input">
-                <div class="title"><i class="material-icons">markunread_mailbox</i> Email</div>
+                <div class="title"><i class="material-icons">markunread_mailbox</i> EMAIL</div>
                 <input class="text" type="email" name="email" placeholder="Entrez votre email" required>
               </div>
               <div class="input">
-                <div class="title"><i class="material-icons">lock</i> Mot de passe</div>
+                <div class="title"><i class="material-icons">lock</i> PASSWORD</div>
                 <input class="text" type="password" name="password" placeholder="Entrez votre mot de passe" required>
               </div>
               <div class="input">
-                <input type="submit" value="S'inscrire" id="signupButton">
+                <input type="submit" value="SIGN ME UP!" id="signupButton">
               </div>
             </form>
           </div>
         </div>
         <div class="tabs">
-          <label class="tab text" for="signin">Connexion</label>
-          <label class="tab text" for="register">Inscription</label>
+          <label class="tab text" for="signin">Sign In</label>
+          <label class="tab text" for="register">Register</label>
         </div>
       </div>
     </div>
@@ -95,9 +97,13 @@
       <a href="terms.html" style="text-decoration: none; color: white; margin-right: 20px;">Conditions d'utilisation</a>
       <a href="privacy.html" style="text-decoration: none; color: white;">Politique de confidentialité</a>
     </div>
-    <div id="warp" style="color: white; font-weight: bold; margin-bottom: 40px;">IV COLLAB 1.1</div>
-  </div>
-
+    
+    
+      <!-- Texte IV COLLAB 1.1 -->
+      <div id="warp" style="color: white; font-weight: bold; margin-bottom: 40px;">IV COLLAB 1.1</div>
+    </div>
+    
+    
 <div id="social-icons">
   <a href="https://www.tiktok.com/login" target="_blank" class="social-icon">
     <img src="tiktok.svg" alt="TikTok">
@@ -116,7 +122,7 @@
   </a>
 </div>
 <script src="space.js"></script>
-<script>
+  <script>
     const tl = gsap
       .timeline({
         defaults: {
